@@ -1,20 +1,20 @@
 import { UIRouterReact, servicesPlugin, hashLocationPlugin } from '@uirouter/react';
 
-// States
+// Module states
 import contact from './modules/contact/state';
 import contacts from './modules/contacts/state';
 
 // Create instance + router setup
-export const router = new UIRouterReact();
+const router = new UIRouterReact();
 router.plugin(servicesPlugin);
 router.plugin(hashLocationPlugin);
 
 // Register each state
-const appStates = [
+const states = [
     contact,
     contacts
 ];
-appStates.forEach(state => router.stateRegistry.register(state));
+states.forEach(state => router.stateRegistry.register(state));
 
 // Set initial and fallback states
 router.urlService.rules.initial({ state: 'contacts' });
@@ -38,6 +38,4 @@ router.transitionService.onError(true, function(err) {
 // Start the router
 router.start();
 
-// Alias state and param services
-export let $state       = router.stateService;
-export let $stateParams = router.globals.params;
+export default router;

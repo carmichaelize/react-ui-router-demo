@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { UIRouter, UIView } from '@uirouter/react';
-import { router } from './router';
+import router from './router';
 
 class App extends Component {
 

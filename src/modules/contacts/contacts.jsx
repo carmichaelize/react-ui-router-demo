@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { router } from '../../router';
+import router from '../../router';
 
 export class ContactsPage extends Component {
 

@@ -9,7 +9,12 @@ export default {
         {
             token: 'contact',
             deps: ['$transition$'],
-            resolveFn: (trans) => contacts.find(contact => contact.id === Number(trans.params().contactId))
+            resolveFn: (trans) => {
+                // Get contactId param (cast to a number)
+                const contactId = Number(trans.params().contactId);
+                // Fetch data
+                return contacts.find(contact => contact.id === contactId)
+            }
         }
     ]
 };
